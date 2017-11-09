@@ -105,7 +105,7 @@ if __name__ == '__main__':
     shutil.copyfile(__file__, os.path.join(result_dir, __file__))
 
     # simulation timesteps
-    (offset, length) = (3000, 168)  # time step selection
+    (offset, length) = (3000, 167)  # time step selection
     timesteps = range(offset, offset+length+1)
 
     # plotting commodities/sites
