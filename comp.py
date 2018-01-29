@@ -132,7 +132,7 @@ def compare_scenarios(result_files, output_filename):
             # repair broken MultiIndex in the first column
             esum.reset_index(inplace=True)
             esum.fillna(method='ffill', inplace=True)
-            esum.set_index(['index', 'pro'], inplace=True)
+            esum.set_index(['level_0', 'level_1'], inplace=True)
 
             costs.append(cost)
 
