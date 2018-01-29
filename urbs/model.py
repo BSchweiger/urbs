@@ -428,6 +428,7 @@ def create_model(data, timesteps=None, dt=1, dual=False):
             ' cap_pro * min_fraction * (r - R) / (1 - min_fraction)'
             ' + tau_pro * (R - min_fraction * r) / (1 - min_fraction)')
 <<<<<<< HEAD
+<<<<<<< HEAD
     m.res_cap_online_by_cap_pro = pyomo.Constraint(
         m.tm, m.pro_partial_tuples,
         rule=res_cap_online_by_cap_pro_rule,
@@ -442,6 +443,8 @@ def create_model(data, timesteps=None, dt=1, dual=False):
         doc='online capacity = process capacity in last step')
 =======
 >>>>>>> 41b814b0ecd90be057d633d12a3847c821dd558c
+=======
+>>>>>>> 269c80dec17ea8785345b695484ad359d3243c4e
 
     # transmission
     m.def_transmission_capacity = pyomo.Constraint(
@@ -854,14 +857,6 @@ def res_process_capacity_rule(m, sit, pro):
     return (m.process_dict['cap-lo'][sit, pro],  # Changed
             m.cap_pro[sit, pro],
             m.process_dict['cap-up'][sit, pro])  # Changed
-
-
-# Online capacity identical in beginning and end
-def res_final_cap_online_rule(m, tm, sit, pro):
-    if tm == m.tm[len(m.tm)]:  # last timestep
-        return (m.cap_online[tm, sit, pro] == m.cap_pro[sit, pro])
-    else:
-        return pyomo.Constraint.Skip
 
 
 # used process area <= maximal process area
